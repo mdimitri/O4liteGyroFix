@@ -44,14 +44,7 @@ You'll need Python 3.8+ and the following dependencies:
 pip install numpy scipy tqdm
 ```
 
-You will also need the third-party `telemetry_parser` module (specifically built for parsing DJI telemetry structures) accessible in your local Python environment:
-
-```text
-.
-├── main.py
-├── telemetry_parser.py   # Required internal or custom module
-└── ...
-```
+You will also need the third-party `telemetry_parser` module (specifically built for parsing DJI telemetry structures) https://pypi.org/project/telemetry-parser/
 
 ---
 
