@@ -1,4 +1,4 @@
-# dji-O4-lite-gyro-fixer
+# dji O4 lite gyro fixer
 
 Clean up glitchy or noisy embedded gyro/quaternion telemetry directly inside DJI MP4 files without remuxing the video or touching the underlying media streams.
 
