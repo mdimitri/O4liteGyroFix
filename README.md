@@ -1,6 +1,7 @@
 # dji O4 lite gyro fixer
 
 Clean up glitchy or noisy embedded gyro/quaternion telemetry directly inside DJI MP4 files without remuxing the video or touching the underlying media streams.
+
 ![Example result](Example.gif)
 
 Some DJI O4 lite air units randomly write corrupted, noisy, or dropped gyro frames into their embedded metadata tracks (`djmd` atoms). This causes camera stabilization algorithms (like Gyroflow) to glitch out, stutter, or warp the image. 
