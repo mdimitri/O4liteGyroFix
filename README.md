@@ -2,7 +2,7 @@
 
 Clean up glitchy or noisy embedded gyro/quaternion telemetry directly inside DJI MP4 files without remuxing the video or touching the underlying media streams.
 
-Some DJI drones and action cameras randomly write corrupted, noisy, or dropped gyro frames into their embedded metadata tracks (`djmd` atoms). This causes camera stabilization algorithms (like Gyroflow) to glitch out, stutter, or warp the image. 
+Some DJI O4 lite air units randomly write corrupted, noisy, or dropped gyro frames into their embedded metadata tracks (`djmd` atoms). This causes camera stabilization algorithms (like Gyroflow) to glitch out, stutter, or warp the image. 
 
 This script parses the binary MP4 container, extracts the embedded `djmd` telemetry payloads using custom Protobuf parsing, filters out high-frequency noise/glitches in angular velocity space, reconstructs a clean quaternion orientation curve via numerical integration, and binary-patches the updated floats straight back into the container.
 
