@@ -1,4 +1,4 @@
-# dji-gyro-fixer
+# dji-O4-lite-gyro-fixer
 
 Clean up glitchy or noisy embedded gyro/quaternion telemetry directly inside DJI MP4 files without remuxing the video or touching the underlying media streams.
 
@@ -18,9 +18,21 @@ This script parses the binary MP4 container, extracts the embedded `djmd` teleme
    - Uses a combination of median filtering and Savitzky-Golay filtering (`savgol_filter`) only on high-noise segments while leaving clean data untouched.
 3. **Quaternion Reconstruction**: Numerically integrates the cleaned angular velocity vector back into quaternions using `scipy.spatial.transform.Rotation`.
 4. **Binary Patching**:
-   - Traverses the MP4 atom box structure (`moov` $ightarrow$ `trak` $ightarrow$ `mdia` $ightarrow$ `minf` $ightarrow$ `stbl`) down to `stsd` / `djmd` tracks.
+   - Traverses the MP4 atom box structure (`moov` $
+ightarrow$ `trak` $
+ightarrow$ `mdia` $
+ightarrow$ `minf` $
+ightarrow$ `stbl`) down to `stsd` / `djmd` tracks.
    - Decodes protobuf structures byte-by-byte to locate the raw IEEE 754 32-bit float values of the original quaternions.
    - Overwrites the inline binary data directly in the buffer and writes a cloned `_gyroFixed.mp4` file without altering file boundaries or size.
+
+---
+
+## Example
+
+![Raw vs Filtered Angular Velocity](Example.png)
+
+*Comparison of raw gyro angular velocity time-series data against the adaptively filtered output.*
 
 ---
 
